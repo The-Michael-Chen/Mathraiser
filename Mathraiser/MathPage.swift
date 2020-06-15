@@ -16,7 +16,15 @@ let mathPageContentView = UIView()
 var totalQuestions = Int()
 var numIncorrectAnswers = Int()
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelegate, GADBannerViewDelegate {
+    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+        print(reward)
+    }
+    
+    /// Tells the delegate that the rewarded ad failed to present.
+    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+      print("Rewarded ad failed to present.")
+    }
     
     
     lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 500)
@@ -39,6 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var isScreenRed = Bool()
     var upArrow = UIImageView()
     var arrowLabel = UILabel()
+    var rewardedAd: GADRewardedAd?
     
     override func viewDidLoad() {
         totalQuestions = 0
@@ -76,6 +85,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         answerBlank.textAlignment = .center
         answerBlank.borderStyle = .none
         answerBlank.delegate = self
+        answerBlank.keyboardType = .numbersAndPunctuation
         
         answerBlank.placeholder = "Answer"
         
@@ -93,7 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bannerView.load(GADRequest())
         addBannerViewToView(bannerView)
         
-        arrowLabel.text = "All Done?"
+        arrowLabel.text = "Show Results"
         arrowLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowLabel.font = UIFont(name: "Comfortaa-Light", size: 15)
         arrowLabel.textColor = .black
@@ -107,11 +117,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(changeScreens))
         swipe.direction = .up
         upArrow.addGestureRecognizer(swipe)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(changeScreens))
-        upArrow.addGestureRecognizer(tap)
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(presentAd))
+        upArrow.addGestureRecognizer(tap1)
+//        let tap2 = UITapGestureRecognizer(target: self, action: #selector(changeScreens))
+//        upArrow.addGestureRecognizer(tap2)
         upArrow.isUserInteractionEnabled = true
         view.addSubview(upArrow)
-        
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+        rewardedAd?.load(GADRequest()) { error in
+          if let error = error {
+            print("ad screwed up \(error)")
+          } else {
+            print("success ad")
+            // Ad successfully loaded.
+          }
+        }
         setUpConstraints()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
@@ -121,7 +141,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func presentAd(sender: UIImageView) {
+      if rewardedAd?.isReady == true {
+        print("isReady")
+         rewardedAd?.present(fromRootViewController: self, delegate:self)
+      }
+    }
+    
     @objc func changeScreens(){
+        print("change screens")
+    }
+    
+    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+       print("Rewarded ad dismissed.")
         for view in mathPageContentView.subviews {
             view.removeFromSuperview()
         }
@@ -231,13 +263,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWillChange(notification: NSNotification) {
-
+       
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if answerBlank.isFirstResponder {
                 self.view.frame.origin.y = -keyboardSize.height + view.safeAreaInsets.bottom
             }
         }
     }
+    
+    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)

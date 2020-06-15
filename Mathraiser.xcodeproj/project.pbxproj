@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B40C41031F0127CB563CF756 /* Pods_Mathraiser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A106184FDB4A3CC725F2E5FF /* Pods_Mathraiser.framework */; };
+		EF2DA8952497DCC900AA0A9C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA8942497DCC900AA0A9C /* UIButtonExtension.swift */; };
+		EF2DA8972497ECF000AA0A9C /* AdTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2DA8962497ECF000AA0A9C /* AdTest.swift */; };
 		EF573A9C2492FE370072FD43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9B2492FE370072FD43 /* AppDelegate.swift */; };
 		EF573A9E2492FE370072FD43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9D2492FE370072FD43 /* SceneDelegate.swift */; };
 		EF573AA02492FE370072FD43 /* MathPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9F2492FE370072FD43 /* MathPage.swift */; };
@@ -26,6 +28,8 @@
 		22F81A017A0648E1396B3575 /* Pods-Mathraiser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathraiser.release.xcconfig"; path = "Target Support Files/Pods-Mathraiser/Pods-Mathraiser.release.xcconfig"; sourceTree = "<group>"; };
 		A106184FDB4A3CC725F2E5FF /* Pods_Mathraiser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mathraiser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59DB507C24244104979416B /* Pods-Mathraiser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathraiser.debug.xcconfig"; path = "Target Support Files/Pods-Mathraiser/Pods-Mathraiser.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2DA8942497DCC900AA0A9C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		EF2DA8962497ECF000AA0A9C /* AdTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTest.swift; sourceTree = "<group>"; };
 		EF573A982492FE370072FD43 /* Mathraiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mathraiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF573A9B2492FE370072FD43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF573A9D2492FE370072FD43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +102,9 @@
 				EF7D45992496845F004FB81A /* Charity.swift */,
 				EF7D459B2496852E004FB81A /* CharityCellTableViewCell.swift */,
 				EF573A9F2492FE370072FD43 /* MathPage.swift */,
+				EF2DA8962497ECF000AA0A9C /* AdTest.swift */,
 				EF573AC22495CDAF0072FD43 /* DonePage.swift */,
+				EF2DA8942497DCC900AA0A9C /* UIButtonExtension.swift */,
 				EF573AA42492FE3A0072FD43 /* Assets.xcassets */,
 				EF573AA92492FE3A0072FD43 /* Info.plist */,
 				EF573AB5249314450072FD43 /* GoogleService-Info.plist */,
@@ -235,6 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF573AC32495CDAF0072FD43 /* DonePage.swift in Sources */,
+				EF2DA8972497ECF000AA0A9C /* AdTest.swift in Sources */,
+				EF2DA8952497DCC900AA0A9C /* UIButtonExtension.swift in Sources */,
 				EF7D459C2496852E004FB81A /* CharityCellTableViewCell.swift in Sources */,
 				EF573AC12495BDD50072FD43 /* IntroScreen.swift in Sources */,
 				EF7D459A2496845F004FB81A /* Charity.swift in Sources */,

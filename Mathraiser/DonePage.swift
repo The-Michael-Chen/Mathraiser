@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class DonePage: UIViewController {
     
@@ -17,6 +18,8 @@ class DonePage: UIViewController {
     var logo = UIImageView()
     var fractionRightAnswers = UILabel()
     var findOutMore = UITextView()
+    var upload = UIButton()
+    
 
     override func viewDidLoad() {
         
@@ -100,13 +103,37 @@ class DonePage: UIViewController {
 //            .underlineStyle: NSUnderlineStyle.single.rawValue
 //        ]
         
+        upload.setImage(UIImage(named: "upload"), for: .normal) 
+        upload.translatesAutoresizingMaskIntoConstraints = false
+        upload.clipsToBounds = true
+        upload.contentMode = .scaleAspectFit
+        upload.addTarget(self, action: #selector(pulseButtonTapped), for: .touchUpInside)
+        upload.addTarget(self, action: #selector(shareScreenshot), for: .touchUpInside)
+        view.addSubview(upload)
+        
         view.addSubview(findOutMore)
         
         setUpConstraints()
+        
 
 //         Do any additional setup after loading the view.
     }
-
+    
+    @objc func shareScreenshot() {
+        let bounds = UIScreen.main.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
+        activityViewController.modalPresentationStyle = .popover
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pulseButtonTapped(_ sender: UIButton) {
+        sender.pulsate()
+    }
+    
     @objc func changeScreens(){
         for view in view.subviews {
             view.removeFromSuperview()
@@ -162,8 +189,15 @@ class DonePage: UIViewController {
         NSLayoutConstraint.activate([
             findOutMore.topAnchor.constraint(equalTo: details.bottomAnchor, constant:  5),
             findOutMore.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            findOutMore.heightAnchor.constraint(equalToConstant: 40),
+            findOutMore.heightAnchor.constraint(equalToConstant: 30),
             findOutMore.widthAnchor.constraint(equalToConstant: 300)
+        ])
+        
+        NSLayoutConstraint.activate([
+            upload.topAnchor.constraint(equalTo: findOutMore.bottomAnchor, constant: 10),
+            upload.widthAnchor.constraint(equalToConstant: 30),
+            upload.heightAnchor.constraint(equalToConstant: 30),
+            upload.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
     }

@@ -82,10 +82,11 @@ class IntroScreen: UIViewController {
         view.addSubview(arrowLabel)
         
         charityTableView.backgroundColor = .clear
-        charityTableView.layer.borderColor = UIColor.black.cgColor
-        charityTableView.layer.borderWidth = 4
+        charityTableView.layer.borderColor = UIColor.clear.cgColor
+        charityTableView.layer.borderWidth = 3
         charityTableView.layer.cornerRadius = 10
         charityTableView.translatesAutoresizingMaskIntoConstraints = false
+        charityTableView.separatorColor = .black
         charityTableView.dataSource = self
         charityTableView.delegate = self
 //        charityTableView.dataSource = self
@@ -118,7 +119,11 @@ class IntroScreen: UIViewController {
         mathPage.modalPresentationStyle = .fullScreen
         self.present(mathPage, animated: true, completion: nil)
         if selectedCharity == "" {
-            selectedCharity = self.charityNames[0]
+            if self.charityNames.count > 0{
+                selectedCharity = self.charityNames[0]
+            } else {
+                selectedCharity = "National Police Accountability Project"
+            }
         }
     }
     
