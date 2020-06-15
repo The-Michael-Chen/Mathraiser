@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>941186389212-6b4433d6qoc8286tumk4spqhs34ro2hf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.941186389212-6b4433d6qoc8286tumk4spqhs34ro2hf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB57gmS9cqYSgBVmpfQMEw2k2e3GJvxUCw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>941186389212</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ChenOutOfTen.SolvusApp</string>
+	<key>PROJECT_ID</key>
+	<string>solvus-1530</string>
+	<key>STORAGE_BUCKET</key>
+	<string>solvus-1530.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:941186389212:ios:2c9456b4ac355121fa9019</string>
+	<key>DATABASE_URL</key>
+	<string>https://solvus-1530.firebaseio.com</string>
+</dict>
+</plist>

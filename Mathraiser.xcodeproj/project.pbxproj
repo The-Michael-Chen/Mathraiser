@@ -3,27 +3,43 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40C41031F0127CB563CF756 /* Pods_Mathraiser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A106184FDB4A3CC725F2E5FF /* Pods_Mathraiser.framework */; };
 		EF573A9C2492FE370072FD43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9B2492FE370072FD43 /* AppDelegate.swift */; };
 		EF573A9E2492FE370072FD43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9D2492FE370072FD43 /* SceneDelegate.swift */; };
-		EF573AA02492FE370072FD43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9F2492FE370072FD43 /* ViewController.swift */; };
-		EF573AA32492FE370072FD43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF573AA12492FE370072FD43 /* Main.storyboard */; };
+		EF573AA02492FE370072FD43 /* MathPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573A9F2492FE370072FD43 /* MathPage.swift */; };
 		EF573AA52492FE3A0072FD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF573AA42492FE3A0072FD43 /* Assets.xcassets */; };
-		EF573AA82492FE3A0072FD43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF573AA62492FE3A0072FD43 /* LaunchScreen.storyboard */; };
+		EF573AB6249314450072FD43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF573AB5249314450072FD43 /* GoogleService-Info.plist */; };
+		EF573ABB2493DC4D0072FD43 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF573AB92493DC1C0072FD43 /* Comfortaa-Bold.ttf */; };
+		EF573ABE2493DC580072FD43 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF573ABC2493DC520072FD43 /* Comfortaa-Light.ttf */; };
+		EF573ABF2493DC5A0072FD43 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF573ABD2493DC550072FD43 /* Comfortaa-Regular.ttf */; };
+		EF573AC12495BDD50072FD43 /* IntroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573AC02495BDD50072FD43 /* IntroScreen.swift */; };
+		EF573AC32495CDAF0072FD43 /* DonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF573AC22495CDAF0072FD43 /* DonePage.swift */; };
+		EF7D459A2496845F004FB81A /* Charity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D45992496845F004FB81A /* Charity.swift */; };
+		EF7D459C2496852E004FB81A /* CharityCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D459B2496852E004FB81A /* CharityCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22F81A017A0648E1396B3575 /* Pods-Mathraiser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathraiser.release.xcconfig"; path = "Target Support Files/Pods-Mathraiser/Pods-Mathraiser.release.xcconfig"; sourceTree = "<group>"; };
+		A106184FDB4A3CC725F2E5FF /* Pods_Mathraiser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mathraiser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59DB507C24244104979416B /* Pods-Mathraiser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathraiser.debug.xcconfig"; path = "Target Support Files/Pods-Mathraiser/Pods-Mathraiser.debug.xcconfig"; sourceTree = "<group>"; };
 		EF573A982492FE370072FD43 /* Mathraiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mathraiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF573A9B2492FE370072FD43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF573A9D2492FE370072FD43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EF573A9F2492FE370072FD43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF573AA22492FE370072FD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF573A9F2492FE370072FD43 /* MathPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPage.swift; sourceTree = "<group>"; };
 		EF573AA42492FE3A0072FD43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EF573AA72492FE3A0072FD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF573AA92492FE3A0072FD43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF573AB5249314450072FD43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF573AB92493DC1C0072FD43 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		EF573ABC2493DC520072FD43 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		EF573ABD2493DC550072FD43 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		EF573AC02495BDD50072FD43 /* IntroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreen.swift; sourceTree = "<group>"; };
+		EF573AC22495CDAF0072FD43 /* DonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePage.swift; sourceTree = "<group>"; };
+		EF7D45992496845F004FB81A /* Charity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charity.swift; sourceTree = "<group>"; };
+		EF7D459B2496852E004FB81A /* CharityCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40C41031F0127CB563CF756 /* Pods_Mathraiser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14D28E7B6436927E0C5411E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A106184FDB4A3CC725F2E5FF /* Pods_Mathraiser.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81DE32F4FB340025EA99FADB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C59DB507C24244104979416B /* Pods-Mathraiser.debug.xcconfig */,
+				22F81A017A0648E1396B3575 /* Pods-Mathraiser.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EF573A8F2492FE370072FD43 = {
 			isa = PBXGroup;
 			children = (
 				EF573A9A2492FE370072FD43 /* Mathraiser */,
 				EF573A992492FE370072FD43 /* Products */,
+				81DE32F4FB340025EA99FADB /* Pods */,
+				14D28E7B6436927E0C5411E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +94,27 @@
 			children = (
 				EF573A9B2492FE370072FD43 /* AppDelegate.swift */,
 				EF573A9D2492FE370072FD43 /* SceneDelegate.swift */,
-				EF573A9F2492FE370072FD43 /* ViewController.swift */,
-				EF573AA12492FE370072FD43 /* Main.storyboard */,
+				EF573AC02495BDD50072FD43 /* IntroScreen.swift */,
+				EF7D45992496845F004FB81A /* Charity.swift */,
+				EF7D459B2496852E004FB81A /* CharityCellTableViewCell.swift */,
+				EF573A9F2492FE370072FD43 /* MathPage.swift */,
+				EF573AC22495CDAF0072FD43 /* DonePage.swift */,
 				EF573AA42492FE3A0072FD43 /* Assets.xcassets */,
-				EF573AA62492FE3A0072FD43 /* LaunchScreen.storyboard */,
 				EF573AA92492FE3A0072FD43 /* Info.plist */,
+				EF573AB5249314450072FD43 /* GoogleService-Info.plist */,
+				EF573ABA2493DC2A0072FD43 /* fonts */,
 			);
 			path = Mathraiser;
+			sourceTree = "<group>";
+		};
+		EF573ABA2493DC2A0072FD43 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF573AB92493DC1C0072FD43 /* Comfortaa-Bold.ttf */,
+				EF573ABC2493DC520072FD43 /* Comfortaa-Light.ttf */,
+				EF573ABD2493DC550072FD43 /* Comfortaa-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF573AAC2492FE3A0072FD43 /* Build configuration list for PBXNativeTarget "Mathraiser" */;
 			buildPhases = (
+				F8B6D4ADBAFD1CAF83BAB479 /* [CP] Check Pods Manifest.lock */,
 				EF573A942492FE370072FD43 /* Sources */,
 				EF573A952492FE370072FD43 /* Frameworks */,
 				EF573A962492FE370072FD43 /* Resources */,
+				C2F5347704CCE7628B51B8A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,45 +177,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF573AA82492FE3A0072FD43 /* LaunchScreen.storyboard in Resources */,
+				EF573ABB2493DC4D0072FD43 /* Comfortaa-Bold.ttf in Resources */,
 				EF573AA52492FE3A0072FD43 /* Assets.xcassets in Resources */,
-				EF573AA32492FE370072FD43 /* Main.storyboard in Resources */,
+				EF573AB6249314450072FD43 /* GoogleService-Info.plist in Resources */,
+				EF573ABF2493DC5A0072FD43 /* Comfortaa-Regular.ttf in Resources */,
+				EF573ABE2493DC580072FD43 /* Comfortaa-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C2F5347704CCE7628B51B8A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mathraiser/Pods-Mathraiser-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mathraiser/Pods-Mathraiser-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mathraiser/Pods-Mathraiser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8B6D4ADBAFD1CAF83BAB479 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mathraiser-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF573A942492FE370072FD43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF573AA02492FE370072FD43 /* ViewController.swift in Sources */,
+				EF573AC32495CDAF0072FD43 /* DonePage.swift in Sources */,
+				EF7D459C2496852E004FB81A /* CharityCellTableViewCell.swift in Sources */,
+				EF573AC12495BDD50072FD43 /* IntroScreen.swift in Sources */,
+				EF7D459A2496845F004FB81A /* Charity.swift in Sources */,
+				EF573AA02492FE370072FD43 /* MathPage.swift in Sources */,
 				EF573A9C2492FE370072FD43 /* AppDelegate.swift in Sources */,
 				EF573A9E2492FE370072FD43 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EF573AA12492FE370072FD43 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF573AA22492FE370072FD43 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EF573AA62492FE3A0072FD43 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF573AA72492FE3A0072FD43 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF573AAA2492FE3A0072FD43 /* Debug */ = {
@@ -282,6 +363,7 @@
 		};
 		EF573AAD2492FE3A0072FD43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C59DB507C24244104979416B /* Pods-Mathraiser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +382,7 @@
 		};
 		EF573AAE2492FE3A0072FD43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22F81A017A0648E1396B3575 /* Pods-Mathraiser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
