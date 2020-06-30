@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
+import AVFoundation
 
 var mathPageScrollView: UIScrollView!
 let mathPageContentView = UIView()
+var duration = TimeInterval()
 
 var totalQuestions = Int()
 var numIncorrectAnswers = Int()
@@ -48,12 +50,24 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
     var upArrow = UIImageView()
     var arrowLabel = UILabel()
     var rewardedAd: GADRewardedAd?
+    var easyStart = 1
+    var easyEnd = 10
+    var medStart = -20
+    var medEnd = 20
+    var hardEnd = 99
+    var hardStart = -99
+    var correctAnswerSoundEffect: AVAudioPlayer?
+    let correctSound = URL(fileURLWithPath: Bundle.main.path(forResource: "winDing", ofType: "mp3")!)
+    
+    
     
     override func viewDidLoad() {
+        overrideUserInterfaceStyle = .light
         totalQuestions = 0
         numIncorrectAnswers = 0
         setUpColors()
         colorIncrementer = 0
+        
         isScreenRed = false
         view.layer.insertSublayer(gradientLayers[colorIncrementer], at: 0)
         
@@ -98,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
         let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 250))
         bannerView.adSize = adSize
         //        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-1213464944557353/2113710295"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         addBannerViewToView(bannerView)
@@ -114,16 +128,14 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
         upArrow.contentMode = .scaleAspectFit
         upArrow.clipsToBounds = true
         upArrow.translatesAutoresizingMaskIntoConstraints = false
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(changeScreens))
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(presentAd))
         swipe.direction = .up
         upArrow.addGestureRecognizer(swipe)
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(presentAd))
         upArrow.addGestureRecognizer(tap1)
-//        let tap2 = UITapGestureRecognizer(target: self, action: #selector(changeScreens))
-//        upArrow.addGestureRecognizer(tap2)
         upArrow.isUserInteractionEnabled = true
         view.addSubview(upArrow)
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-1213464944557353/5011050968")
         rewardedAd?.load(GADRequest()) { error in
           if let error = error {
             print("ad screwed up \(error)")
@@ -141,19 +153,43 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
         // Do any additional setup after loading the view.
     }
     
+    func sendData() {
+        let contributionRef = Database.database().reference().child("charityContributions").child("\(selectedCharity)")
+        var contributionNumber = Int()
+        contributionRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            contributionNumber = snapshot.value as! Int
+            if contributionNumber != 0 {
+                let totalContribution = contributionNumber + totalQuestions
+                Database.database().reference().child("charityContributions").updateChildValues(["\(selectedCharity)" : totalContribution])
+            }
+        }, withCancel: nil)
+        
+
+    }
+    
+    
     @IBAction func presentAd(sender: UIImageView) {
+        if let start = startTime {
+            duration = Date().timeIntervalSince(start)
+        }
+        
       if rewardedAd?.isReady == true {
         print("isReady")
          rewardedAd?.present(fromRootViewController: self, delegate:self)
-      }
+      } else {
+        sendData()
+        for view in mathPageContentView.subviews {
+            view.removeFromSuperview()
+        }
+        let donePage = DonePage()
+        donePage.modalPresentationStyle = .fullScreen
+        self.present(donePage, animated: true, completion: nil)
+        }
     }
-    
-    @objc func changeScreens(){
-        print("change screens")
-    }
-    
+
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
        print("Rewarded ad dismissed.")
+        sendData()
         for view in mathPageContentView.subviews {
             view.removeFromSuperview()
         }
@@ -164,8 +200,20 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
     
     func setUpEquation() {
         let randomNumber = Int.random(in: 1 ... 3)
-        component1 = Int.random(in: 1 ... 10)
-        component3 = Int.random(in: 1 ... 10)
+        var end = Int()
+        var start = Int()
+        if selectedDifficulty == "Insane" {
+            end = hardEnd
+            start = hardStart
+        } else if selectedDifficulty == "Medium" {
+            end = medEnd
+            start = easyStart
+        } else {
+            end = easyEnd
+            start = easyStart
+        }
+        component1 = Int.random(in: start ... end)
+        component3 = Int.random(in: start ... end)
         component4 = "="
         if randomNumber == 1 {
             component2 = "+"
@@ -225,6 +273,18 @@ class ViewController: UIViewController, UITextFieldDelegate, GADRewardedAdDelega
             self.answerBlank.text = ""
         }
         if "\(answer)" == answerBlank.text {
+            
+//            let url = URL(fileURLWithPath: correctSound)
+           
+            do {
+                
+                correctAnswerSoundEffect = try AVAudioPlayer(contentsOf: correctSound)
+                
+                correctAnswerSoundEffect?.play()
+                correctAnswerSoundEffect?.volume = 0.02
+            } catch {
+                print("Coudln't load the sound")
+            }
             totalQuestions += 1
             self.answerBlank.placeholder = "Answer"
             colorIncrementer += 1

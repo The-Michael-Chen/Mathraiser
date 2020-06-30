@@ -19,10 +19,11 @@ class DonePage: UIViewController {
     var fractionRightAnswers = UILabel()
     var findOutMore = UITextView()
     var upload = UIButton()
+    var time = UILabel()
     
 
     override func viewDidLoad() {
-        
+        overrideUserInterfaceStyle = .light
         super.viewDidLoad()
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
@@ -40,16 +41,32 @@ class DonePage: UIViewController {
         fractionRightAnswers.text = "Score: \(totalQuestions-numIncorrectAnswers)/\(totalQuestions)"
         fractionRightAnswers.translatesAutoresizingMaskIntoConstraints = false
         fractionRightAnswers.textColor = .black
-        fractionRightAnswers.font = UIFont(name: "Comfortaa-Bold", size: 25.0)
+        fractionRightAnswers.font = UIFont(name: "Comfortaa-Regular", size: 25.0)
         fractionRightAnswers.textAlignment = .center
         view.addSubview(fractionRightAnswers)
         
-        details.text = "You have contributed approximately \(0.001 * Double(totalQuestions)) cents to the \(selectedCharity)"
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.allowedUnits = [ .day, .hour, .minute, .second]
+        let currentTime = formatter.string(from: duration)!
+        
+        time.text = "Time: \(String(currentTime))"
+        time.translatesAutoresizingMaskIntoConstraints = false
+        time.textColor = .black
+        time.font = UIFont(name: "Comfortaa-Regular", size: 25.0)
+        time.textAlignment = .center
+        view.addSubview(time)
+        
+        details.text = """
+        You beat \(selectedDifficulty) Mode!
+        Thank you for supporting \(selectedCharity)!
+        Now spread the word:
+        """
         details.translatesAutoresizingMaskIntoConstraints = false
         details.textColor = .black
         details.numberOfLines = 0
         details.lineBreakMode = .byWordWrapping
-        details.font = UIFont(name: "Comfortaa-Regular", size: 18)
+        details.font = UIFont(name: "Comfortaa-Light", size: 18)
         details.textAlignment = .center
         view.addSubview(details)
         
@@ -80,10 +97,10 @@ class DonePage: UIViewController {
         
         findOutMore.translatesAutoresizingMaskIntoConstraints = false
         findOutMore.textColor = .black
-        findOutMore.font = UIFont(name: "Comfortaa-Regular", size: 18)
+        findOutMore.font = UIFont(name: "Comfortaa-Light", size: 15)
         findOutMore.textAlignment = .center
         findOutMore.backgroundColor = .none
-        findOutMore.text = "Find Out More at google.com"
+        findOutMore.text = "Find Out More at chenoutoften.wixsite.com/mathraiser"
         findOutMore.dataDetectorTypes = .link
         findOutMore.isEditable = false
         findOutMore.isUserInteractionEnabled = true
@@ -180,21 +197,27 @@ class DonePage: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            details.topAnchor.constraint(equalTo: fractionRightAnswers.bottomAnchor, constant: 10),
-            details.widthAnchor.constraint(equalToConstant: 274),
-            details.heightAnchor.constraint(equalToConstant: 120),
+            time.topAnchor.constraint(equalTo: fractionRightAnswers.bottomAnchor, constant: 10),
+            time.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            time.heightAnchor.constraint(equalToConstant: 43)
+        ])
+        
+        NSLayoutConstraint.activate([
+            details.topAnchor.constraint(equalTo: time.bottomAnchor, constant: 10),
+            details.widthAnchor.constraint(equalToConstant: 290),
+            details.heightAnchor.constraint(equalToConstant: 110),
             details.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            findOutMore.topAnchor.constraint(equalTo: details.bottomAnchor, constant:  5),
+            findOutMore.topAnchor.constraint(equalTo: upload.bottomAnchor, constant:  5),
             findOutMore.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            findOutMore.heightAnchor.constraint(equalToConstant: 30),
+            findOutMore.heightAnchor.constraint(equalToConstant: 50),
             findOutMore.widthAnchor.constraint(equalToConstant: 300)
         ])
         
         NSLayoutConstraint.activate([
-            upload.topAnchor.constraint(equalTo: findOutMore.bottomAnchor, constant: 10),
+            upload.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 10),
             upload.widthAnchor.constraint(equalToConstant: 30),
             upload.heightAnchor.constraint(equalToConstant: 30),
             upload.centerXAnchor.constraint(equalTo: view.centerXAnchor)

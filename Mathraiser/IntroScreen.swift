@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 var selectedCharity = String()
+var selectedDifficulty = String()
+var startTime: Date?
 
 class IntroScreen: UIViewController {
     
@@ -20,6 +22,9 @@ class IntroScreen: UIViewController {
     var arrowLabel = UILabel()
     var charityNames = [String]()
     var charityTableView = UITableView()
+    var easyButton = UIButton()
+    var medButton = UIButton()
+    var hardButton = UIButton()
 //
 //    let charityTableView: UITableView = {
 //        let ctv = UITableView()
@@ -29,6 +34,7 @@ class IntroScreen: UIViewController {
 //    }()
 
     override func viewDidLoad() {
+        overrideUserInterfaceStyle = .light
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.systemPink.cgColor, UIColor.systemBlue.cgColor]
@@ -47,7 +53,10 @@ class IntroScreen: UIViewController {
         view.addSubview(header)
         
         
-        details.text = "100% of profits to the charity of your choice: "
+        details.text = """
+        A simple & fun math game
+        Select level of difficulty:
+        """
         details.translatesAutoresizingMaskIntoConstraints = false
         details.textColor = .black
         details.numberOfLines = 0
@@ -55,6 +64,42 @@ class IntroScreen: UIViewController {
         details.font = UIFont(name: "Comfortaa-Regular", size: 18)
         details.textAlignment = .center
         view.addSubview(details)
+        
+        easyButton.setTitle("Easy", for: .normal)
+        easyButton.setTitleColor(.black, for: .normal)
+        easyButton.titleLabel?.font = UIFont(name: "Comfortaa-Regular", size: 15)
+        easyButton.layer.borderColor = UIColor.black.cgColor
+        easyButton.layer.borderWidth = 2
+        easyButton.addTarget(self, action: #selector(pulseButtonTapped), for: .touchUpInside)
+        easyButton.addTarget(self, action: #selector(tappedEasyButton), for: .touchUpInside)
+        easyButton.layer.cornerRadius = 6
+        easyButton.translatesAutoresizingMaskIntoConstraints = false
+        easyButton.layer.backgroundColor = UIColor.clear.cgColor
+        view.addSubview(easyButton)
+        
+        medButton.setTitle("Medium", for: .normal)
+        medButton.setTitleColor(.black, for: .normal)
+        medButton.titleLabel?.font = UIFont(name: "Comfortaa-Regular", size: 15)
+        medButton.layer.borderColor = UIColor.black.cgColor
+        medButton.layer.borderWidth = 2
+        medButton.addTarget(self, action: #selector(pulseButtonTapped), for: .touchUpInside)
+        medButton.addTarget(self, action: #selector(tappedMedButton), for: .touchUpInside)
+        medButton.layer.cornerRadius = 6
+        medButton.translatesAutoresizingMaskIntoConstraints = false
+        medButton.layer.backgroundColor = UIColor.clear.cgColor
+        view.addSubview(medButton)
+        
+        hardButton.setTitle("Insane", for: .normal)
+        hardButton.setTitleColor(.black, for: .normal)
+        hardButton.titleLabel?.font = UIFont(name: "Comfortaa-Regular", size: 15)
+        hardButton.layer.borderColor = UIColor.black.cgColor
+        hardButton.layer.borderWidth = 2
+        hardButton.addTarget(self, action: #selector(pulseButtonTapped), for: .touchUpInside)
+        hardButton.addTarget(self, action: #selector(tappedHardButton), for: .touchUpInside)
+        hardButton.layer.cornerRadius = 6
+        hardButton.translatesAutoresizingMaskIntoConstraints = false
+        hardButton.layer.backgroundColor = UIColor.clear.cgColor
+        view.addSubview(hardButton)
         
         upArrow.image = UIImage(named: "up-arrow")
         upArrow.contentMode = .scaleAspectFit
@@ -100,6 +145,31 @@ class IntroScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func tappedEasyButton() {
+        easyButton.backgroundColor = .systemGray4
+        medButton.backgroundColor = .clear
+        hardButton.backgroundColor = .clear
+        selectedDifficulty = "Easy"
+    }
+    
+    @objc func tappedMedButton() {
+        easyButton.backgroundColor = .clear
+        medButton.backgroundColor = .systemGray4
+        hardButton.backgroundColor = .clear
+        selectedDifficulty = "Medium"
+    }
+    
+    @objc func tappedHardButton() {
+        easyButton.backgroundColor = .clear
+        medButton.backgroundColor = .clear
+        hardButton.backgroundColor = .systemGray4
+        selectedDifficulty = "Insane"
+    }
+    
+    @IBAction func pulseButtonTapped(_ sender: UIButton) {
+        sender.pulsate()
+    }
+    
     func inputCharityNames() {
         Database.database().reference().child("charities").observe( .value, with: { (snapshot) in
             for child in snapshot.children {
@@ -125,6 +195,10 @@ class IntroScreen: UIViewController {
                 selectedCharity = "National Police Accountability Project"
             }
         }
+        if selectedDifficulty == "" {
+            selectedDifficulty = "Easy"
+        }
+        startTime = Date()
     }
     
     func setUpConstraints() {
@@ -144,10 +218,31 @@ class IntroScreen: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            details.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 27),
+            details.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10),
             details.widthAnchor.constraint(equalToConstant: 274),
-            details.heightAnchor.constraint(equalToConstant: 45),
+            details.heightAnchor.constraint(equalToConstant: 50),
             details.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            medButton.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 10),
+            medButton.widthAnchor.constraint(equalToConstant: 75),
+            medButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            medButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            easyButton.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 10),
+            easyButton.widthAnchor.constraint(equalToConstant: 75),
+            easyButton.trailingAnchor.constraint(equalTo: medButton.leadingAnchor, constant: -10),
+            easyButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            hardButton.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 10),
+            hardButton.widthAnchor.constraint(equalToConstant: 75),
+            hardButton.leadingAnchor.constraint(equalTo: medButton.trailingAnchor, constant: 10),
+            hardButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
@@ -165,10 +260,10 @@ class IntroScreen: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            charityTableView.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 10),
+            charityTableView.topAnchor.constraint(equalTo: easyButton.bottomAnchor, constant: 10),
             charityTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             charityTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            charityTableView.bottomAnchor.constraint(equalTo: upArrow.topAnchor, constant: -170)
+            charityTableView.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     

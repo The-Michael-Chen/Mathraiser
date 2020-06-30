@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Light.ttf">
+            <string>Comfortaa-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mathraiser" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                <rect key="frame" x="0.0" y="425.5" width="414" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="0aK-HG-V4H"/>
+                                    <constraint firstAttribute="height" constant="45" id="2oz-AJ-Twv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="39g-Bp-bcz"/>
+                                    <constraint firstAttribute="width" constant="414" id="Vcs-V9-9Qp"/>
+                                    <constraint firstAttribute="width" secondItem="GJd-Yh-RWb" secondAttribute="height" multiplier="46:5" id="mq5-86-OI1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mathRaiserLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xE2-oy-9b3">
+                                <rect key="frame" x="77" y="239" width="260" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="2xe-Tl-Gew"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="147" id="Axj-Yr-sjS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="Ig5-3k-fB7"/>
+                                    <constraint firstAttribute="width" secondItem="xE2-oy-9b3" secondAttribute="height" multiplier="260:147" id="STL-ZJ-n1q"/>
+                                    <constraint firstAttribute="width" secondItem="xE2-oy-9b3" secondAttribute="height" multiplier="260:147" id="U2T-Hn-aYY"/>
+                                    <constraint firstAttribute="height" constant="147" id="pbJ-GC-VLo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 Michael Chen." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="67" y="819" width="280" height="19"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88113868470000001" green="0.64077233170000003" blue="0.91980725529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2RW-lC-E0N"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="7wA-WM-7Mm"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="xE2-oy-9b3" secondAttribute="bottom" constant="39.5" id="Exu-gR-6YC"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="SmF-7c-h3n"/>
+                            <constraint firstItem="xE2-oy-9b3" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="195" id="T6F-dA-cV7"/>
+                            <constraint firstItem="xE2-oy-9b3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WWx-sI-ANd"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="24" id="mLW-I1-rtd"/>
+                            <constraint firstItem="xE2-oy-9b3" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="ozs-ne-7cd"/>
+                            <constraint firstItem="xE2-oy-9b3" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="195" id="sk8-ox-4As"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mathRaiserLogo" width="500" height="500"/>
+    </resources>
+</document>
